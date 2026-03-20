@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         HideImageVideo
-// @version      2026-02-20
+// @version      v1.0
 // @description  Hide images and videos on websites
 // @author       iCooLER
 // @match        *://*/*
@@ -12,17 +12,23 @@
 
     const customCss = `
         img,
-        video:not(.video-stream) {
-            filter: opacity(0%) !important;
-            opacity: 1 !important;
+        video:not(.video-stream),
+        *[style*="background-image"] {
+            filter: blur(16px) brightness(0.7) !important;
+            transform: scale(1.02) !important;
+            transform-origin: center center !important;
+            overflow: hidden !important;
+            background: #1a1a1a !important;
+        }
+
+        img,
+        *[style*="background-image"] {
+            clip-path: inset(0) !important;
         }
 
         ytd-rich-shelf-renderer[is-shorts],
         .ytd-shorts {
             display: none !important;
-        }
-        *[style*=background-image] {
-            background-image: none !important;
         }
   `;
 
