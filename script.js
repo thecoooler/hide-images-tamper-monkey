@@ -11,8 +11,7 @@
     'use strict';
 
     const customCss = `
-    img,
-        .ytp-hide-controls video,
+        img,
         video:not(.video-stream) {
             filter: opacity(0%) !important;
             opacity: 1 !important;
